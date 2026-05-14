@@ -1,12 +1,13 @@
-# Rules: Cloud Providers
+# ☁️ Cloud and Infrastructure
 
-> Read this before ANY aws, gcloud, az, or doctl command.
+> Covers AWS, GCP, Azure, DigitalOcean, and Terraform. Destructive cloud operations (terminate instances, delete projects, create IAM keys) are denied. All other cloud CLI commands require confirmation.
+
+> **When to read this file:** Before executing any command in this category.
 
 ---
 
 ## 🔴 DENIED — Never Execute
 
-### AWS Destructive
 ```
 aws s3 rm *
 aws s3 rb *
@@ -14,29 +15,12 @@ aws ec2 terminate-instances *
 aws iam create-user *
 aws iam attach-user-policy *
 aws iam create-access-key *
-aws configure *
-```
-
-### Google Cloud Destructive
-```
 gcloud projects delete *
 gcloud compute instances delete *
 gcloud iam service-accounts create *
-gcloud config set project *
-gcloud app deploy *
-```
-
-### Azure Destructive
-```
 az group delete *
 az vm delete *
 az ad sp create *
-az account set *
-az webapp deploy *
-```
-
-### Other Cloud
-```
 doctl compute droplet delete *
 linode-cli linodes delete *
 terraform import *
@@ -51,9 +35,8 @@ aws *
 gcloud *
 az *
 doctl *
+terraform plan *
+terraform init *
 ```
 
 ---
-
-## 🟢 ALLOWED
-None — all cloud CLI commands require confirmation.

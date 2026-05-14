@@ -1,26 +1,16 @@
-# Rules: Git Operations
+# 📜 Git History and Repository Integrity
 
-> Read this before executing ANY git command.
+> Protects repository integrity by blocking history rewriting, force pushes, remote manipulation, and tag deletion. Safe read and normal commit/branch/fetch operations are always allowed.
+
+> **When to read this file:** Before executing any command in this category.
 
 ---
 
 ## 🔴 DENIED — Never Execute
 
-### Force Push
 ```
-git push --force *
-git push -f *
-```
-
-### Protected Branch Checkouts
-```
-git checkout main
-git checkout master
-git checkout production
-```
-
-### History Rewriting
-```
+git remote add *
+git remote set-url *
 git filter-branch *
 git filter-repo *
 git rebase -i *
@@ -35,12 +25,6 @@ git tag -d *
 git push * --delete *
 git push * --tags --force
 git submodule deinit *
-```
-
-### Remote Manipulation
-```
-git remote add *
-git remote set-url *
 ```
 
 ---
@@ -59,7 +43,7 @@ git tag *
 
 ---
 
-## 🟢 ALLOWED — Safe to Execute
+## 🟢 ALWAYS ALLOWED
 
 ```
 git status

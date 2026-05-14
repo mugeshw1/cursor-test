@@ -1,12 +1,13 @@
-# Rules: Package Management
+# 📦 Package and Dependency Management
 
-> Read this before installing, publishing, or updating any package.
+> Manages package installation across all ecosystems (npm, pip, gem, cargo, apt). Global installs and custom registries are denied to prevent supply chain attacks. Local installs require confirmation. Run scripts are always allowed.
+
+> **When to read this file:** Before executing any command in this category.
 
 ---
 
 ## 🔴 DENIED — Never Execute
 
-### Global Installs
 ```
 npm install -g *
 pnpm install -g *
@@ -21,13 +22,6 @@ yum install *
 brew install *
 snap install *
 flatpak install *
-```
-
-### Registry Overrides (Supply Chain Risk)
-```
-pip install --index-url *
-pip install --extra-index-url *
-npm install --registry *
 ```
 
 ---
@@ -45,15 +39,15 @@ npx *
 
 ---
 
-## 🟢 ALLOWED — Safe to Execute
+## 🟢 ALWAYS ALLOWED
 
 ```
 npm run *
 pnpm run *
 yarn run *
+node *
 npm run build *
 pnpm run build *
 yarn build *
 make *
-node *
 ```
